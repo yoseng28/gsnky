@@ -22,34 +22,15 @@ class ZBList(models.Model):
         return self.name
 
 
-class ZBValue(models.Model):
-    value = models.CharField(max_length=50, verbose_name='指标值')
-    avg_range = models.IntegerField(default=1, verbose_name='平均-范围',
-                                    choices=((1, '平均值'), (2, '范围')))
-    product = models.ForeignKey(Product, '产品', verbose_name='产品')
-    zb_list = models.ForeignKey(ZBList, verbose_name='指标', on_delete=models.CASCADE,
-                                limit_choices_to={'type': 'ggzb'}
-                                )
-    info = models.CharField(max_length=200, verbose_name='指标值描述', null=True, blank=True)
-
-    class Meta:
-        db_table = 'zb_value'
-        verbose_name = '指标值'
-        verbose_name_plural = verbose_name
-
-    def __str__(self):
-        return self.value
-
-
 # 感官指标
 class GGZB(models.Model):
-    value = models.CharField(max_length=50, verbose_name='指标值')
+    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     avg_range = models.IntegerField(default=1, verbose_name='平均-范围',
                                     choices=((1, '平均值'), (2, '范围')))
-    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     zb_list = models.ForeignKey(ZBList, verbose_name='指标',
                                 on_delete=models.CASCADE,
                                 limit_choices_to={'type': 'ggzb'})
+    value = models.CharField(max_length=50, verbose_name='指标值')
     info = models.CharField(max_length=200, verbose_name='指标值描述', null=True, blank=True)
 
     class Meta:
@@ -63,12 +44,12 @@ class GGZB(models.Model):
 
 # 基本营养指标
 class JBYYZB(models.Model):
-    value = models.CharField(max_length=50, verbose_name='指标值')
+    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     avg_range = models.IntegerField(default=1, verbose_name='平均-范围',
                                     choices=((1, '平均值'), (2, '范围')))
-    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     zb_list = models.ForeignKey(ZBList, verbose_name='指标', on_delete=models.CASCADE,
                                 limit_choices_to={'type': 'jbyy'})
+    value = models.CharField(max_length=50, verbose_name='指标值')
     info = models.CharField(max_length=200, verbose_name='指标值描述', null=True, blank=True)
 
     class Meta:
@@ -82,13 +63,13 @@ class JBYYZB(models.Model):
 
 # 特异性营养指标
 class TYXYYZB(models.Model):
-    value = models.CharField(max_length=50, verbose_name='指标值')
+    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     avg_range = models.IntegerField(default=1, verbose_name='平均-范围',
                                     choices=((1, '平均值'), (2, '范围')))
-    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     zb_list = models.ForeignKey(ZBList, verbose_name='指标',
                                 on_delete=models.CASCADE,
                                 limit_choices_to={'type': 'tyxyy'})
+    value = models.CharField(max_length=50, verbose_name='指标值')
     info = models.CharField(max_length=200, verbose_name='指标值描述', null=True, blank=True)
 
     class Meta:
@@ -102,13 +83,13 @@ class TYXYYZB(models.Model):
 
 # DNA图谱
 class DNATP(models.Model):
-    value = models.CharField(max_length=50, verbose_name='指标值')
+    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     avg_range = models.IntegerField(default=1, verbose_name='平均-范围',
                                     choices=((1, '平均值'), (2, '范围')))
-    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     zb_list = models.ForeignKey(ZBList, verbose_name='指标',
                                 on_delete=models.CASCADE,
                                 limit_choices_to={'type': 'dnatp'})
+    value = models.CharField(max_length=50, verbose_name='指标值')
     info = models.CharField(max_length=200, verbose_name='指标值描述', null=True, blank=True)
 
     class Meta:
@@ -122,13 +103,13 @@ class DNATP(models.Model):
 
 # 产地环境
 class CDHJ(models.Model):
-    value = models.CharField(max_length=50, verbose_name='指标值')
+    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     avg_range = models.IntegerField(default=1, verbose_name='平均-范围',
                                     choices=((1, '平均值'), (2, '范围')))
-    product = models.ForeignKey(Product, '产品', verbose_name='产品')
     zb_list = models.ForeignKey(ZBList, verbose_name='指标', on_delete=models.CASCADE,
                                 limit_choices_to={'type': 'cdhj'}
                                 )
+    value = models.CharField(max_length=50, verbose_name='指标值')
     info = models.CharField(max_length=200, verbose_name='指标值描述', null=True, blank=True)
 
     class Meta:

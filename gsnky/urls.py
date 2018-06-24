@@ -16,7 +16,7 @@ Including another URLconf
 import xadmin
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from django.views.static import serve
 
@@ -30,5 +30,6 @@ urlpatterns = [
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
 
-    url(r'^zb/(?P<product_id>.*)/$', ZBView.as_view(), name='zb_view'),
+    re_path(r'^zb/(?P<product_id>.*)/$', ZBView.as_view(), name='zb_view'),
+    url(r'^ueditor/', include('DjangoUeditor.urls')),
 ]

@@ -1,5 +1,4 @@
 import xadmin
-
 from .models import Product, ProductType
 
 
