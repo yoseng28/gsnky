@@ -1,0 +1,177 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+{% block title%}
+<title>甘肃省农科院指标评价中心</title>
+{% endblock %}
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="{% static 'css/bootstrap.css'%}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome icons -->
+<link href="{% static 'css/font-awesome.css'%}" rel="stylesheet">
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+</head>
+
+<body>
+
+    <div class="agileits_header">
+		<div class="container">
+			<div class="w3l_offers">
+				<p>甘肃省农科院<a href="#">指标评价中心</a></p>
+			</div>
+			<div class="agile-login">
+				<ul>
+					<li><a href="registered.html">创建账户</a></li>
+
+					<li><a href="login.html">登录</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown">用户名<b class="caret"></b></a>
+						<ul class="dropdown-menu multi-column columns-2" style="min-width: 90px">
+							<div>
+								<div>
+									<ul class="multi-column-dropdown">
+										<li style="margin-left: 14px"><a href="groceries.html">退出</a></li>
+									</ul>
+								</div>
+							</div>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+
+
+    <div class="navigation-agileits">
+		<div class="container">
+			<nav class="navbar navbar-default">
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                        <span class="sr-only">导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/" class="act">首页</a></li>
+                        <!-- Mega Menu -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">作物种类<b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-3">
+                                <div class="row">
+                                    <div class="multi-gd-img">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>类别</h6>
+                                            <li><a href="/zblist">粮油作物</a></li>
+                                            <li><a href="/zblist">蔬菜</a></li>
+                                            <li><a href="/zblist">林果</a></li>
+                                            <li><a href="/zblist">畜禽</a></li>
+                                            <li><a href="/zblist">中药材</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </ul>
+                        </li>
+                        <li><a href="offers.html">参考资料</a></li>
+                        <li><a href="/contact">联系我们</a></li>
+                    </ul>
+                </div>
+                </nav>
+			</div>
+		</div>
+
+{% block content%}
+{% endblock %}
+
+{% block Carousel %}
+{% endblock %}
+
+{% block newproducts%}
+{% endblock %}
+
+
+{% block ban %}
+{% endblock %}
+
+
+<div class="footer">
+		<div class="container">
+			<div class="w3_footer_grids">
+				<div class="col-md-3 w3_footer_grid">
+					<h3>联系方式</h3>
+					<ul class="address">
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>甘肃省兰州市安宁区<span>农科院</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>0931-2345679</li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>作物种类</h3>
+					<ul class="info">
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">粮油作物</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">蔬菜</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">林果</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">畜禽</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">中药材</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>信息</h3>
+					<ul class="info">
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">关于我们</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/contact">联系我们</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#">其他</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="faq.html">FAQ's</a></li>
+						<!--
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Special Products</a></li>
+					-->
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>用户</h3>
+					<ul class="info">
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="login.html">登录</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="registered.html">注册</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-botm">
+		<p style="color:white;" align="center">版权 &copy; 2018.甘肃省农科院</p>
+</div>
+
+
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+
+<!-- top-header and slider -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+<script src="{% static 'js/minicart.min.js'%}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>联系我们</title>
+{% endblock %}
+
+{% block content%}
+    <!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
+				<li class="active">联系我们</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+
+<!-- contact -->
+	<div class="about">
+		<div class="w3_agileits_contact_grids">
+			<div class="col-md-6 ">
+				<div class="agile_map">
+					<iframe src="/baidumap" style="border:0"></iframe>
+				</div>
+			</div>
+			<div class="col-md-6 w3_agileits_contact_grid_right">
+				<h2 class="w3_agile_header">留<span> 言</span></h2>
+				<form action="#" method="post">
+					<span class="input input--ichiro">
+						<input class="input__field input__field--ichiro" type="text" id="input-25" name="Name" placeholder=" " required="" />
+						<label class="input__label input__label--ichiro" for="input-25">
+							<span class="input__label-content input__label-content--ichiro">姓名</span>
+						</label>
+					</span>
+					<span class="input input--ichiro">
+						<input class="input__field input__field--ichiro" type="email" id="input-26" name="Email" placeholder=" " required="" />
+						<label class="input__label input__label--ichiro" for="input-26">
+							<span class="input__label-content input__label-content--ichiro">邮箱</span>
+						</label>
+					</span>
+					<textarea name="Message" placeholder="你要说的话……" required=""></textarea>
+					<input type="submit" value="提交">
+				</form>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- contact -->
+{% endblock %}
