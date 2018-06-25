@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>{{ product_name }}指标详情页面</title>
+{% endblock %}
+
+{% block content %}
+
+    <!-- breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
+                <li><a href="/zblist">返回上页</a></li>
+                <li class="active">{{ product_name }}</li>
+            </ol>
+        </div>
+    </div>
+    <!-- //breadcrumbs -->
+
+
+    <!--- 详情 -->
+    <div class="products">
+        <div class="container">
+            <div class="col-md-12">
+                <div>
+                    <h2 class="text-center">{{ product_name }}---指标详情</h2>
+                    </br>
+                    <h3>一、感官指标</h3>
+                    </br>
+                    <table class="table">
+                        <tr class="active">
+                            <td class="success"></td>
+                            {% for v in ggzb_avg %}
+                                <td class="success">{{ v.zb_list.name }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">平均值</td>
+                            {% for v in ggzb_avg %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">范围</td>
+                            {% for v in ggzb_range %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                    <h3>二、基本营养指标</h3>
+                    </br>
+                     <table class="table">
+                        <tr class="active">
+                            <td class="warning"></td>
+                            {% for v in jbyyzb_avg %}
+                                <td class="warning">{{ v.zb_list.name }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">平均值</td>
+                            {% for v in jbyyzb_avg %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">范围</td>
+                            {% for v in jbyyzb_range %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                    <h3>三、特异性营养指标</h3>
+                    </br>
+                     <table class="table">
+                        <tr class="active">
+                            <td class="danger"></td>
+                            {% for v in tyxyyzb_avg %}
+                                <td class="danger">{{ v.zb_list.name }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">平均值</td>
+                            {% for v in tyxyyzb_avg %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">范围</td>
+                            {% for v in tyxyyzb_range %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                    <h3>四、DNA图谱</h3>
+                    </br>
+                    <table class="table">
+                        <tr class="active">
+                            <td class="info"></td>
+                            {% for v in dnatp_avg %}
+                                <td class="info">{{ v.zb_list.name }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">平均值</td>
+                            {% for v in dnatp_avg %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">范围</td>
+                            {% for v in dnatp_range %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                    <h3>五、产地环境</h3>
+                    </br>
+                    <table class="table">
+                        <tr class="active">
+                            <td class="success"></td>
+                            {% for v in cdhj_avg %}
+                                <td class="success">{{ v.zb_list.name }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">平均值</td>
+                            {% for v in cdhj_avg %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td class="active">范围</td>
+                            {% for v in cdhj_range %}
+                                <td>{{ v.value }}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>
