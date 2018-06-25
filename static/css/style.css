@@ -560,7 +560,8 @@ p.w3l-ad {
     margin-top: 40px;
 }
 .hover14.column {
-    border: 1px solid #c0bebe;
+    border: 0px solid #c0bebe;
+    margin-bottom: 5px;
 }
 .stars {
     text-align: center;
@@ -599,7 +600,7 @@ i.gray-star {
 }
 /*-- //to-top --*/
 .ban-bottom-w3l {
-    padding: 5em 0;
+    padding: 0em 0;
 }
 .ban-bottom1 {
     float: left;
@@ -1378,7 +1379,7 @@ ul.faq {
 }
 /*-- products --*/
 .products {
-    padding: 5em 0;
+    padding: 0em 0;
 }
 .sorting{
 	float:right;
@@ -1416,7 +1417,7 @@ ul.paging {
 }
 .categories,.new-products{
 	border:1px solid #c0c0c0;
-	background-color: #000000;
+	background-color: #ffffff;
 }
 .categories h2{
 	font-size: 1.5em;
@@ -1441,7 +1442,7 @@ ul.paging {
 	margin-bottom:1em;
 }
 .categories ul li a{
-	color:#999;
+	color:#4f4e4e;
 	text-decoration:none;
 }
 .categories ul li a:hover{
@@ -1479,7 +1480,7 @@ input#amount {
 /*-- //products --*/
 /*-- about --*/
 .about,.about-team, .contact,.codes {
-    padding: 5em 0;
+    padding: 0em 0;
 }
 h3.w3_agile_header,h2.w3_agile_header {
     text-align: center;
@@ -2555,10 +2556,6 @@ ul.phone_email li {
 }
 .navbar {
     min-height: 43px;
-}
-.top_brand_left {
-    float: left;
-    width: 33.33%;
 }
 .agile_top_brand_left_grid1 img {
    max-width: 100% ! important ;
