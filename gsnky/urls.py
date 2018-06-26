@@ -19,13 +19,13 @@ from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from django.views.static import serve
 
+from commodity.views import CommodityListView, CommodityInfoView
 from gsnky.settings import MEDIA_ROOT
-from products.views import productsTreeView
+from products.views import ProductsView
 from zb.views import ZBView
 
 urlpatterns = [
     path('admin/', xadmin.site.urls),
-
     # 上传文件的访问配置
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     # Plugins
@@ -36,9 +36,11 @@ urlpatterns = [
     path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
     path('baidumap/', TemplateView.as_view(template_name='map.html'), name='baidumap'),
 
-    # 指标树显示
-    path('zblist/', productsTreeView, name='zblist'),
-    # 指标详情页
-    re_path(r'^zblist/(?P<product_id>.*)/$', ZBView.as_view(), name='zb_view'),
+    # 指标
+    path('zblist/', ProductsView.as_view(), name='zblist'),
+    re_path(r'^zbinfo/(?P<product_id>.*)/$', ZBView.as_view(), name='zb_view'),
+    # 商品展示
+    path('comlist/', CommodityListView.as_view(), name='comlist'),
+    re_path(r'^cominfo/(?P<commodity_id>.*)/$', CommodityInfoView.as_view(), name='cominfo'),
 
 ]

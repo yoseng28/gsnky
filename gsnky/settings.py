@@ -47,11 +47,12 @@ INSTALLED_APPS = [
     'crispy_forms',
     'reversion',
     'mptt',
+    'pure_pagination',
+    'DjangoUeditor',
     'products',
     'zb',
     'users',
-    'DjangoUeditor',
-    'goods',
+    'commodity',
 ]
 
 MIDDLEWARE = [
@@ -146,8 +147,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # 邮件配置
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'chingseng@163.com'
+EMAIL_HOST_USER = 'yoseng@163.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
-EMAIL_FROM = 'chingseng@163.com'
+EMAIL_FROM = 'yoseng@163.com'
+
+# 分页配置
+Y_PAGING_ZB_NUM = 3
+Y_PAGING_COMMODITY_NUM = 3
 
