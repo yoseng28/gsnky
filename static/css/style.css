@@ -1,3 +1,16 @@
+
+
+.yue_commodity_info{
+    margin: 30px;
+}
+.yue_reset{
+    margin-top: 10px;
+}
+.yue_image{
+    height: 120px;
+}
+
+
 html, body{
     font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
@@ -84,7 +97,7 @@ input[type="submit"],#PPMiniCart .minicart-submit,.w3ls_vegetables ul li a,input
 }
 .w3l_search {
     float: left;
-    width: 85.33%;
+    width: 66.33%;
     margin: 0em 3em 1em 1em;
 }
 .w3l_search input[type="search"] {
@@ -1418,6 +1431,7 @@ ul.paging {
 .categories,.new-products{
 	border:1px solid #c0c0c0;
 	background-color: #ffffff;
+    margin-bottom: 20px;
 }
 .categories h2{
 	font-size: 1.5em;

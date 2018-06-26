@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>{{ commodity.name }}商品详情页面</title>
+{% endblock %}
+
+{% block content %}
+
+    <!-- breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
+                <li><a href="/comlist">返回上页</a></li>
+                <li class="active">{{ commodity.name }}</li>
+            </ol>
+        </div>
+    </div>
+    <!-- //breadcrumbs -->
+
+
+    <!--- 详情 -->
+    <div class="products">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="yue_commodity_info">
+                    <h2 class="text-center"> <span class="label label-default">商品详情</span> {{ commodity.name }}</h2>
+                    </br>
+                    {% autoescape off %}
+                    {{ commodity.detail }}
+                    {% endautoescape %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>
