@@ -11,18 +11,21 @@
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
+
 <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet" type="text/css" media="all" />
 <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" media="all" />
-<!-- font-awesome icons -->
 <link href="{% static 'css/font-awesome.css'%}" rel="stylesheet">
-<!-- //font-awesome icons -->
-<!-- js -->
+
 <script src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
-<!-- //js -->
-<!-- start-smoth-scrolling -->
+
 <script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+
+
+{% block js%}
+{% endblock %}
+
+
 </head>
 
 <body>
@@ -34,19 +37,14 @@
 			</div>
 			<div class="agile-login">
 				<ul>
-					<li><a href="registered.html">创建账户</a></li>
-
-					<li><a href="login.html">登录</a></li>
+					<li><a href="/register">创建账户</a></li>
+					<li><a href="/login">登录</a></li>
 					<li class="dropdown">
-						<a class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown">用户名<b class="caret"></b></a>
-						<ul class="dropdown-menu multi-column columns-2" style="min-width: 90px">
-							<div>
-								<div>
-									<ul class="multi-column-dropdown">
-										<li style="margin-left: 14px"><a href="groceries.html">退出</a></li>
-									</ul>
-								</div>
-							</div>
+						<a class="dropdown-toggle " data-toggle="dropdown">
+                            用户名<b class="caret"></b>
+                        </a>
+						<ul class="dropdown-menu" style="min-width: 70px">
+                            <li><a style="color: black;font-weight: bold" href="groceries.html">退出</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -114,25 +112,15 @@
 <div class="footer">
 		<div class="container">
 			<div class="w3_footer_grids">
-				<div class="col-md-3 w3_footer_grid">
+				<div class="col-md-4 w3_footer_grid">
 					<h3>联系方式</h3>
 					<ul class="address">
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>甘肃省兰州市安宁区<span>农科院</span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>0931-2345679</li>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>地址：兰州市安宁区农科院新村1号<span></span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>邮编：73000</li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>电话：0931-2345679</li>
 					</ul>
 				</div>
-				<div class="col-md-3 w3_footer_grid">
-					<h3>作物种类</h3>
-					<ul class="info">
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">粮油作物</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">蔬菜</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">林果</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">畜禽</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/zblist">中药材</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 w3_footer_grid">
+				<div class="col-md-4 w3_footer_grid">
 					<h3>信息</h3>
 					<ul class="info">
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#">关于我们</a></li>
@@ -140,11 +128,11 @@
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/admin">管理页面</a></li>
 					</ul>
 				</div>
-				<div class="col-md-3 w3_footer_grid">
+				<div class="col-md-4 w3_footer_grid">
 					<h3>用户</h3>
 					<ul class="info">
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="login.html">登录</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="registered.html">注册</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/login">登录</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/register">注册</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -152,7 +140,8 @@
 		</div>
 	</div>
 	<div class="footer-botm">
-		<p style="color:white;" align="center">版权 &copy; 2018.甘肃省农科院</p>
+		<p style="color:white;" align="center">版权 &copy; 甘肃省农科院</p>
+        <p style="color:white;" align="center">建议使用chrome、360等浏览器</p>
 </div>
 
 

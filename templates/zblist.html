@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load mptt_tags %}
 {% block title%}
-<title>作物种类列表页面</title>
+<title>产品指标查询页面</title>
 {% endblock %}
 
 
@@ -12,7 +12,8 @@
 		<div class="container">
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
 				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
-				<li class="active">作物种类</li>
+				<li class="active"><a href="/zblist">返回上页</a></li>
+                <li>产品指标查询</li>
 			</ol>
 		</div>
 	</div>
@@ -23,13 +24,13 @@
 		<div class="container">
 			<div class="col-md-4 products-left">
 				<div class="categories">
-					<h2>作物种类</h2>
+					<h2 style="background-color: #d4d8d9">指标种类</h2>
 					<ul class="cate">
 						<li>
                             {% recursetree nodes %}
                             <li>
                                 <i class="fa fa-arrow-right "></i>
-                                    <a href="{{ node.id  }}">{{ node.name }}</a>
+                                    <a href="?level={{ node.level }}&typeid={{ node.id  }}">{{ node.name }}</a>
                                     {% if not node.is_leaf_node %}
                                         <ul class="children">
                                             {{ children }}
@@ -44,57 +45,96 @@
 
 			<div class="col-md-8 products-right">
 				<div class="w3l_search">
-					<form action="404.html" method="post">
-						<input type="search" name="Search" placeholder="输入搜索..." required="">
+					<form action="/zblist" method="get">
+						<input type="search" name="key_words" placeholder="产品类型、产品名称搜索..." required="">
 						<button type="submit" class="btn btn-default search" aria-label="Left Align">
 							<i class="fa fa-search" aria-hidden="true"> </i>
 						</button>
 						<div class="clearfix"></div>
 					</form>
+                    <div class="yue_reset">
+                        <p>
+                            <a href="/zblist">
+                                点击查看全部
+                            </a>
+                            <span class="badge">当前产品数：{{ product_list.paginator.count }}</span>
+                        </p>
+                    </div>
 				</div>
-{#				<div class="agile_top_brands_grids">#}
-                    {% for e in product_list %}
-					<div class="col-md-4 top_brand_left">
-						<div class="hover14 column">
-							<div class="agile_top_brand_left_grid">
-								<div class="agile_top_brand_left_grid1">
-									<figure>
-										<div class="snipcart-item block">
-											<div class="snipcart-thumb">
-												<a href="single.html"><img title=" " alt=" " src="{% static 'images/1.png' %}"></a>
-												<p>{{ e.name }}</p>
-											</div>
-											<div class="snipcart-details top_brand_home_details">
-												<a class="btn btn-warning" href="{{ e.id }}" >查看详情</a>
-											</div>
-										</div>
-									</figure>
-								</div>
-							</div>
-						</div>
-					</div>
-                    {% endfor %}
+
+                    {% if product_list.paginator.count == 0 %}
+                        <div class="col-md-12 top_brand_left">
+                            <div class="alert alert-danger" role="alert">
+                               暂无&nbsp相关产品
+                            </div>
+                        </div>
+                    {% else %}
+                        {% for e in product_list.object_list %}
+                        <div class="col-md-4 top_brand_left">
+                            <div class="hover14 column">
+                                <div class="agile_top_brand_left_grid">
+                                    <div class="agile_top_brand_left_grid1">
+                                        <figure>
+                                            <div class="snipcart-item block">
+                                                <div class="snipcart-thumb">
+                                                    <a href="/zbinfo/{{ e.id }}">
+                                                        {% if e.pic == '' %}
+                                                        <img class="img-thumbnail yue_image" title="" alt="" src="{% static 'images/defult_zb.png'%}">
+                                                        {% else %}
+                                                        <img class="img-thumbnail yue_image" title="" alt="" src="{{ MEDIA_URL }}{{ e.pic }} ">
+                                                        {% endif %}
+                                                    </a>
+                                                    <p>{{ e.name }}</p>
+                                                </div>
+                                                <div class="snipcart-details top_brand_home_details">
+                                                    <a class="btn btn-warning" href="/zbinfo/{{ e.id }}" >指标详情</a>
+                                                </div>
+                                            </div>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     <div class="clearfix"> </div>
-{#				</div>#}
-				<nav class="numbering">
-					<ul class="pagination paging">
-						<li>
-							<a href="#" aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span>
-							</a>
-						</li>
-						<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li>
-							<a href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-							</a>
-						</li>
-					</ul>
-				</nav>
+                    <nav class="numbering">
+                        <ul class="pagination paging">
+                     {% if product_list.has_previous %}
+                        <li>
+                            <a href="?{{ product_list.previous_page_number.querystring }}">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                     {% endif %}
+
+                    {% for page in product_list.pages %}
+                        {% if page %}
+                            {% ifequal page product_list.number %}
+                                <li class="active">
+                                    <a href="?{{ page.querystring }}">
+                                        {{ page }}
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                            {% endifequal %}
+                        {% else %}
+                            <li class="none"><a href="">...</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if product_list.has_next %}
+                        <li class="long">
+                            <a href="?{{ product_list.next_page_number.querystring }}">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+                    </nav>
+                    {% endif %}
+
 			</div>
 			<div class="clearfix"> </div>
 		</div>
