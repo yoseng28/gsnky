@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 
 {% block title%}
 <title>甘肃省农科院指标评价中心</title>
@@ -16,13 +16,13 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-     <a href="#"> <img class="first-slide" src="static/images/a1.jpg" alt="First slide"></a>
+     <a href="#"> <img class="first-slide" src="{% static 'images/a1.jpg' %}" alt="First slide"></a>
     </div>
     <div class="item">
-     <a href="#"> <img class="second-slide " src="static/images/a2.jpg" alt="Second slide"></a>
+     <a href="#"> <img class="second-slide " src="{% static 'images/a2.jpg' %}" alt="Second slide"></a>
     </div>
     <div class="item">
-      <a href="#"><img class="third-slide " src="static/images/a3.jpg" alt="Third slide"></a>
+      <a href="#"><img class="third-slide " src="{% static 'images/a3.jpg' %}" alt="Third slide"></a>
     </div>
   </div>
 </div>
@@ -40,7 +40,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img title=" " alt=" " src="static/images/14.png"></a>
+												<a href="detail.html"><img title=" " alt=" " src="{% static 'images/14.png' %}"></a>
 												<p>查看农作物的详细指标</p>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
@@ -60,7 +60,7 @@
 										<div class="snipcart-item block">
 
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img class="img-rounded" title=" " alt=" " src="static/images/15.png"></a>
+												<a href="detail.html"><img class="img-rounded" title=" " alt=" " src="{% static 'images/15.png' %}"></a>
 												<p>农作物信息的产品介绍</p>
 											</div>
 
@@ -80,7 +80,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img class="img-rounded" src="static/images/16.png" alt=" " class="img-responsive"></a>
+												<a href="detail.html"><img class="img-rounded" src="{% static 'images/16.png' %}" alt=" " class="img-responsive"></a>
 												<p>暂无</p>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
@@ -100,7 +100,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img class="img-rounded" title=" " alt=" " src="static/images/17.png"></a>
+												<a href="detail.html"><img class="img-rounded" title=" " alt=" " src="{% static 'images/17.png' %}"></a>
 												<p>暂无</p>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
@@ -123,19 +123,19 @@
 					<div class="container">
 					<div class="col-md-6 ban-bottom3">
 							<div class="ban-top">
-								<img src="static/images/p2.jpg" class="img-responsive" alt=""/>
+								<img src="{% static 'images/p2.jpg' %}" class="img-responsive" alt=""/>
 
 							</div>
 							<div class="ban-img">
 								<div class=" ban-bottom1">
 									<div class="ban-top">
-										<img src="static/images/p3.jpg" class="img-responsive" alt=""/>
+										<img src="{% static 'images/p3.jpg' %}" class="img-responsive" alt=""/>
 
 									</div>
 								</div>
 								<div class="ban-bottom2">
 									<div class="ban-top">
-										<img src="static/images/p4.jpg" class="img-responsive" alt=""/>
+										<img src="{% static 'images/p4.jpg' %}" class="img-responsive" alt=""/>
 
 									</div>
 								</div>
@@ -144,9 +144,7 @@
 						</div>
 						<div class="col-md-6 ban-bottom">
 							<div class="ban-top">
-								<img src="static/images/111.jpg" class="img-responsive" alt=""/>
-
-
+								<img src="{% static 'images/111.jpg' %}" class="img-responsive" alt=""/>
 							</div>
 						</div>
 
