@@ -38,9 +38,10 @@
 			<div class="agile-login">
 				<ul>
                      {% if request.user.is_authenticated %}
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     <li class="dropdown">
 						<a class="dropdown-toggle " data-toggle="dropdown">
-                           你好， {{ request.user }}<b class="caret"></b>
+                           {{ request.user }}<b class="caret"></b>&nbsp
                         </a>
 						<ul class="dropdown-menu" style="min-width: 70px">
                             <li><a style="color: black;font-weight: bold" href="{% url 'logout' %}">退出</a></li>
@@ -73,7 +74,7 @@
                         <li class="active"><a href="/" class="act">首页</a></li>
                         <!-- Mega Menu -->
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">作物种类<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">指标查询<b class="caret"></b></a>
                             <ul class="dropdown-menu multi-column columns-3">
                                 <div class="row">
                                     <div class="multi-gd-img">
@@ -99,6 +100,9 @@
 		</div>
 
 {% block content%}
+{% endblock %}
+
+    {% block content2%}
 {% endblock %}
 
 {% block Carousel %}
@@ -132,11 +136,13 @@
 					</ul>
 				</div>
 				<div class="col-md-4 w3_footer_grid">
+                    {% if not request.user.is_authenticated %}
 					<h3>用户</h3>
 					<ul class="info">
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/login">登录</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="/register">注册</a></li>
 					</ul>
+                     {% endif %}
 				</div>
 				<div class="clearfix"> </div>
 			</div>
