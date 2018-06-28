@@ -26,6 +26,12 @@
                 <div class="yue_commodity_info">
                     <h2 class="text-center"> <span class="label label-default"></span> {{ info.name }}</h2>
                     </br>
+                    <h5 class="text-center">
+                        <span class="label label-default"></span>
+                        发布人：{{ info.publisher }}&nbsp;&nbsp;&nbsp;发布时间：{{ info.add_time }}
+                    </h5>
+                    </br>
+                    <p></p>
                     {% autoescape off %}
                     {{ info.detail }}
                     {% endautoescape %}
