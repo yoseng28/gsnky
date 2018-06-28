@@ -12,6 +12,6 @@ class RegisterForm(forms.Form):
     user_name = forms.CharField(required=True)
     user_email = forms.EmailField(required=True)
     user_password = forms.CharField(required=True)
-    captcha = CaptchaField(error_messages={'invalid:': '验证码错误！'})
+    # captcha = CaptchaField(error_messages={'invalid:': '验证码错误！'})
 
 

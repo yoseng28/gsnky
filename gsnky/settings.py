@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'users',
     'commodity',
     'captcha',
+    'information',
 ]
 
 MIDDLEWARE = [
@@ -156,6 +157,9 @@ EMAIL_USE_TLS = False
 EMAIL_FROM = 'yoseng@163.com'
 
 # 分页配置
-Y_PAGING_ZB_NUM = 3
-Y_PAGING_COMMODITY_NUM = 3
+Y_PAGING_ZB_NUM = 9
+Y_PAGING_COMMODITY_NUM = 9
+Y_PAGING_INFO_NUM = 20
+
+Y_GROUP_ZJ = '专家用户'
 

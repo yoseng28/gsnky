@@ -28,7 +28,7 @@ class LoginView(View):
             if user is not None:
                 auth.login(request, user)
                 request.session['username'] = user_name
-                return render(request, 'index.html')
+                return redirect('/')
             else:
                 return render(request, 'login.html', {'message_error': '用户名或密码错误！'})
         else:

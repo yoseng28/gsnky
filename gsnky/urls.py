@@ -21,6 +21,7 @@ from django.views.static import serve
 
 from commodity.views import CommodityListView, CommodityInfoView
 from gsnky.settings import MEDIA_ROOT
+from information.views import InformationListView, InformationView
 from products.views import ProductsView
 from users.views import LoginView, RegisterView, LogoutView
 from zb.views import ZBView
@@ -43,6 +44,9 @@ urlpatterns = [
     # 商品展示
     path('comlist/', CommodityListView.as_view(), name='comlist'),
     re_path(r'^cominfo/(?P<commodity_id>.*)/$', CommodityInfoView.as_view(), name='cominfo'),
+    # 新闻通告
+    path('infolist/', InformationListView.as_view(), name='infolist'),
+    path('info/', InformationView.as_view(), name='info'),
 
     path('login/', LoginView.as_view(), name='login'),
     path('register/', RegisterView.as_view(), name='register'),
