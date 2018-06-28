@@ -40,7 +40,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img title=" " alt=" " src="{% static 'images/14.png' %}"></a>
+												<a href="detail.html"><img class="img-thumbnail yue_image"title=" " alt=" " src="{% static 'images/14.png' %}"></a>
 												<p>查看农作物的详细指标</p>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
@@ -60,7 +60,7 @@
 										<div class="snipcart-item block">
 
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img class="img-rounded" title=" " alt=" " src="{% static 'images/15.png' %}"></a>
+												<a href="detail.html"><img class="img-thumbnail yue_image" title=" " alt=" " src="{% static 'images/15.png' %}"></a>
 												<p>农作物信息的产品介绍</p>
 											</div>
 
@@ -80,11 +80,11 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img class="img-rounded" src="{% static 'images/16.png' %}" alt=" " class="img-responsive"></a>
-												<p>暂无</p>
+												<a href="{% url 'infolist'%}?typeid=1"><img class="img-thumbnail yue_image" src="{% static 'images/16.png' %}" alt=" " class="img-responsive"></a>
+												<p>新闻</p>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
-												<a class="btn btn-warning" href="">点击评价</a>
+												<a class="btn btn-warning" href="{% url 'infolist'%}?typeid=1">查看全部</a>
 												</form>
 											</div>
 										</div>
@@ -100,11 +100,11 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="detail.html"><img class="img-rounded" title=" " alt=" " src="{% static 'images/17.png' %}"></a>
-												<p>暂无</p>
+												<a href="{% url 'infolist'%}?typeid=2"><img class="img-thumbnail yue_image" title=" " alt=" " src="{% static 'images/17.png' %}"></a>
+												<p>通知公告</p>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
-												<a class="btn btn-warning" href="">点击评价</a>
+												<a class="btn btn-warning" href="{% url 'infolist'%}?typeid=2">查看全部</a>
 											</div>
 										</div>
 									</figure>
@@ -117,6 +117,39 @@
 		</div>
 	</div>
 {% endblock %}
+
+{% block infomation%}
+<!-- news and notification-->
+<!-- news and notification-->
+{#    <div class="top-brands">#}
+{#        <div class="container">#}
+{#        <h2>新闻通知</h2>#}
+{#            <div class="grid_3 grid_5">#}
+{#                <div class="col-md-6 panel panel-default" style="background-color: #f5f5f5">#}
+{#                    <div class="panel-heading"><h3>新闻</h3></div>#}
+{#                    <ul class="list-group">#}
+{#                        <li class="list-group-item" style="border: 0;background-color: #f5f5f5"><i class="fa fa-angle-double-right"></i><a href="#" style="color: black"> 通知公告</a><span style="float: right;">6-28</span></li>#}
+{#                        <li class="list-group-item" style="border: 0;background-color: #f5f5f5"><i class="fa fa-angle-double-right"></i><a href="#" style="color: black"> 通知公告</a><span style="float: right;">6-28</span></li>#}
+{#                        <li class="list-group-item" style="border: 0;background-color: #f5f5f5"><i class="fa fa-angle-double-right"></i><a href="#" style="color: black"> 通知公告</a><span style="float: right;">6-28</span></li>#}
+{#                    </ul>#}
+{#                    <a href="{%url 'infolist' %}?typeid=1" style="float: right;">查看更多</a>#}
+{#                </div>#}
+{#                <div class="col-md-6 panel panel-default" style="background-color: #f5f5f5">#}
+{#                    <div class="panel-heading"><h3>通知公告</h3></div>#}
+{#                    <ul class="list-group">#}
+{#                        <li class="list-group-item" style="border: 0;background-color: #f5f5f5"><i class="fa fa-angle-double-right"></i><a href="#" style="color: black"> 通知公告</a><span style="float: right;">6-28</span></li>#}
+{#                        <li class="list-group-item" style="border: 0;background-color: #f5f5f5"><i class="fa fa-angle-double-right"></i><a href="#" style="color: black"> 通知公告</a><span style="float: right;">6-28</span></li>#}
+{#                        <li class="list-group-item" style="border: 0;background-color: #f5f5f5"><i class="fa fa-angle-double-right"></i><a href="#" style="color: black"> 通知公告</a><span style="float: right;">6-28</span></li>#}
+{#                    </ul>#}
+{#                    <a href="{%url 'infolist' %}?typeid=2" style="float: right;">查看更多</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+<!-- //news and notification-->
+<!-- //news and notification-->
+{% endblock %}
+
 
 {% block ban %}
     <div class="ban-bottom-w3l">

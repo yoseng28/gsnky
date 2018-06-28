@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load mptt_tags %}
+{% block title%}
+<title>新闻、通知页面</title>
+{% endblock %}
+
+
+{% block content %}
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
+				<li class="active"><a href="/infolist">返回上页</a></li>
+                <li>新闻、通知</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+
+
+	<div class="products">
+		<div class="container">
+			<div class="col-md-4 products-left">
+				<div class="categories">
+					<h2 style="background-color: #d4d8d9">新闻、通知</h2>
+					<ul class="cate">
+						<li>
+                            {% for types in info_type %}
+                            <li>
+                                <i class="fa fa-arrow-right "></i>
+                                <a href="?typeid={{ types.id  }}">{{ types.name }}</a>
+                            </li>
+                            {% endfor %}
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-8 products-right">
+				<div class="w3l_search">
+					<form action="/infolist" method="get">
+						<input type="search" name="key_words" placeholder="新闻、公告 名称搜索..." required="">
+						<button type="submit" class="btn btn-default search" aria-label="Left Align">
+							<i class="fa fa-search" aria-hidden="true"> </i>
+						</button>
+						<div class="clearfix"></div>
+					</form>
+                    <div class="yue_reset">
+                        <p>
+                            <a href="/infolist">
+                                点击查看全部
+                            </a>
+                            <span class="badge">当前数：{{ info_list.paginator.count }}</span>
+                        </p>
+                    </div>
+				</div>
+
+                    {% if info_list.paginator.count == 0 %}
+                        <div class="col-md-12 top_brand_left">
+                            <div class="alert alert-danger" role="alert">
+                               暂无&nbsp;相关新闻、通知
+                            </div>
+                        </div>
+                    {% else %}
+
+                        <div class="col-md-12 top_brand_left">
+                            <div class="hover14 column">
+                                <ul class="list-group" style="margin-bottom: 0px">
+                                    {% for e in info_list.object_list %}
+                                    <li class="list-group-item" style="border: 0">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        <a href="{% url 'info' %}?id={{ e.id }}" style="color: black">
+                                            {%if e.name|length >= 35 %}
+                                                {{e.name|slice:"35"}}...
+                                            {%else%}
+                                                {{e.name}}
+                                            {%endif%}
+                                        </a>
+                                        <span style="float: right;">{{ e.add_time }}</span>
+                                    </li>
+                                     {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    <div class="clearfix"> </div>
+                    <nav class="numbering">
+                        <ul class="pagination paging">
+                     {% if info_list.has_previous %}
+                        <li>
+                            <a href="?{{ info_list.previous_page_number.querystring }}">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                     {% endif %}
+
+                    {% for page in info_list.pages %}
+                        {% if page %}
+                            {% ifequal page info_list.number %}
+                                <li class="active">
+                                    <a href="?{{ page.querystring }}">
+                                        {{ page }}
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                            {% endifequal %}
+                        {% else %}
+                            <li class="none"><a href="">...</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if info_list.has_next %}
+                        <li class="long">
+                            <a href="?{{ info_list.next_page_number.querystring }}">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+                    </nav>
+                    {% endif %}
+
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+{% endblock %}
