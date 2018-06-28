@@ -11,8 +11,9 @@ class CommodityAdmin(object):
         return self.readonly_fields
 
     readonly_fields = ('add_time',)
-    list_display = ['name', 'type']
+    list_display = ['name', 'type', 'add_time']
     search_fields = ['name']
+    list_filter = ['name', 'type', 'add_time']
     model_icon = 'fa fa-certificate'
     style_fields = {"detail": "ueditor"}
 

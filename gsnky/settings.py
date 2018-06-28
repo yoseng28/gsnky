@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 
 # 自定义login时，查询的参数name email
 AUTHENTICATION_BACKENDS = ['users.views.CustomBackend', ]
-
 # 首先搜索app下面的路径，位置0代表先搜索
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))

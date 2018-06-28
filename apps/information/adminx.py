@@ -11,8 +11,9 @@ class InformationAdmin(object):
         return self.readonly_fields
 
     readonly_fields = ('add_time',)
-    list_display = ['name', 'type']
+    list_display = ['name', 'publisher', 'type', 'add_time']
     search_fields = ['name']
+    list_filter = ['name', 'publisher', 'type', 'add_time']
     model_icon = 'fa fa-upload'
     style_fields = {"detail": "ueditor"}
 
@@ -25,7 +26,8 @@ class InformationTypeAdmin(object):
         return self.readonly_fields
 
     readonly_fields = ('add_time',)
-    list_display = ['name', ]
+    list_display = ['name']
+    list_filter = ['name']
     search_fields = ['name']
     model_icon = 'fa fa-upload'
 

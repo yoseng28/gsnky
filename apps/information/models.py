@@ -19,7 +19,7 @@ class InformationType(models.Model):
 
 
 class Information(models.Model):
-    publisher = models.CharField(max_length=50, verbose_name='信息名称', null=True, blank=True)
+    publisher = models.CharField(max_length=50, verbose_name='发布人', null=True, blank=True)
     name = models.CharField(max_length=50, verbose_name='信息名称')
     type = models.ForeignKey(InformationType, verbose_name='信息类型',
                              on_delete=models.CASCADE, )

@@ -34,7 +34,7 @@ class LoginView(View):
         else:
             return render(request, 'login.html', {
                 'login_error': login_form,
-                'msg': '登录信息有误！'
+                'message_error': '登录信息有误！'
             })
 
 
@@ -50,11 +50,11 @@ class RegisterView(View):
             user_password = request.POST.get('user_password')
             user_email = request.POST.get('user_email')
 
-            user = auth.authenticate(username=user_name, password=user_password)
+            user = User.objects.filter(Q(username=user_name) | Q(email=user_email))
             if user:
                 return render(request, 'register.html', {
                     'register_error': register_form,
-                    'msg': '用户已经存在！'
+                    'message_error': '该用户名、邮箱已注册！'
                 })
 
             user = User.objects.create_user(username=user_name, password=user_password, email=user_email)
