@@ -40,7 +40,7 @@ class Commodity(models.Model):
                           default='')
 
     class Meta:
-        db_table = 'Commodity'
+        db_table = 'commodity'
         verbose_name = '商品'
         verbose_name_plural = verbose_name
 

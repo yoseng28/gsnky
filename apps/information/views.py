@@ -22,7 +22,7 @@ class InformationListView(View):
 
     def get(self, request):
         info_type = InformationType.objects.all()
-        info_list = Information.objects.all()
+        info_list = Information.objects.all().order_by('-add_time')
 
         # 关键字搜索
         key_words = request.GET.get('key_words', '')

@@ -142,6 +142,8 @@ USE_TZ = False
 STATIC_URL = '/static/'
 # 静态文件配置
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# 项目根目录下的static文件夹
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 上传文件目录
 MEDIA_URL = '/media/'
@@ -158,7 +160,7 @@ EMAIL_FROM = 'yoseng@163.com'
 # 分页配置
 Y_PAGING_ZB_NUM = 9
 Y_PAGING_COMMODITY_NUM = 9
-Y_PAGING_INFO_NUM = 20
+Y_PAGING_INFO_NUM = 15
 
 Y_GROUP_ZJ = '专家用户'
 
