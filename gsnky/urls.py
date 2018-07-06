@@ -20,7 +20,7 @@ from django.views.generic import TemplateView
 from django.views.static import serve
 
 from commodity.views import CommodityListView, CommodityInfoView
-from gsnky.settings import MEDIA_ROOT
+from gsnky.settings import MEDIA_ROOT, STATIC_ROOT
 from information.views import InformationListView, InformationView
 from products.views import ProductsView
 from users.views import LoginView, RegisterView, LogoutView
@@ -32,6 +32,9 @@ urlpatterns = [
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     # Plugins
     url(r'^ueditor/', include('DjangoUeditor.urls')),
+    # debug=false
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}, name='static'),
+
 
     # 静态页面跳转
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
@@ -54,3 +57,7 @@ urlpatterns = [
 
 
 ]
+
+# 全局404 500配置
+handler404 = 'users.views.page_not_found'
+handler500 = 'users.views.page_error'

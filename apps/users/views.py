@@ -2,7 +2,8 @@ from django.contrib import auth
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
+from django.template import RequestContext
 
 from django.views.generic.base import View
 
@@ -78,3 +79,17 @@ class CustomBackend(ModelBackend):
         except Exception as e:
             print(e)
             return None
+
+
+# 全局404页面
+def page_not_found(request):
+    response = render_to_response('404.html', {})
+    response.status_code = 404
+    return response
+
+
+# 全局500页面
+def page_error(request):
+    response = render_to_response('500.html', {})
+    response.status_code = 500
+    return response
