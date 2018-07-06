@@ -35,3 +35,24 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_ggzb_num(self):
+        return self.ggzb_set.all().count()
+
+    def get_jbyyzb_num(self):
+        return self.jbyyzb_set.all().count()
+
+    def get_tyxyyzb_num(self):
+        return self.tyxyyzb_set.all().count()
+
+    def get_cdhj_num(self):
+        return self.cdhj_set.all().count()
+
+    def get_dnatp_num(self):
+        return self.dnatp_set.all().count()
+
+    get_ggzb_num.short_description = '感官指标-数目'
+    get_jbyyzb_num.short_description = '基本营养指标-数目'
+    get_tyxyyzb_num.short_description = '特异性营养指标-数目'
+    get_cdhj_num.short_description = '产地指标-数目'
+    get_dnatp_num.short_description = 'DNA图谱-数目'

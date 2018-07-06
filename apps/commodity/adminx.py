@@ -26,7 +26,7 @@ class CommodityTypeAdmin(object):
         return self.readonly_fields
 
     readonly_fields = ('add_time',)
-    list_display = ['name', 'parent']
+    list_display = ['name', 'parent', 'get_commodity_num']
     search_fields = ['name']
     model_icon = 'fa fa-certificate'
 

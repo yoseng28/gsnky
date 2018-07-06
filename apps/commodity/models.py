@@ -20,6 +20,11 @@ class CommodityType(MPTTModel):
     def __str__(self):
         return self.name
 
+    def get_commodity_num(self):
+        return self.commodity_set.all().count()
+
+    get_commodity_num.short_description = '商品数'
+
 
 class Commodity(models.Model):
     name = models.CharField(max_length=50, verbose_name='商品名称')

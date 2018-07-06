@@ -17,6 +17,10 @@ class InformationType(models.Model):
     def __str__(self):
         return self.name
 
+    def get_information_num(self):
+        return self.information_set.all().count()
+    get_information_num.short_description = '个数'
+
 
 class Information(models.Model):
     publisher = models.CharField(max_length=50, verbose_name='发布人', null=True, blank=True)

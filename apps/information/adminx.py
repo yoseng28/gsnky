@@ -26,10 +26,11 @@ class InformationTypeAdmin(object):
         return self.readonly_fields
 
     readonly_fields = ('add_time',)
-    list_display = ['name']
+    list_display = ['name', 'get_information_num']
     list_filter = ['name']
     search_fields = ['name']
     model_icon = 'fa fa-upload'
+    list_editable = ['name']
 
 
 xadmin.site.register(Information, InformationAdmin)
