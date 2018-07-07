@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load mptt_tags %}
 {% block title%}
-<title>新闻、通知页面</title>
+<title>行业新闻、通知页面</title>
 {% endblock %}
 
 
@@ -13,7 +13,7 @@
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
 				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
 				<li class="active"><a href="/infolist">返回上页</a></li>
-                <li>新闻、通知</li>
+                <li>行业新闻、通知</li>
 			</ol>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 		<div class="container">
 			<div class="col-md-4 products-left">
 				<div class="categories">
-					<h2 style="background-color: #d4d8d9">新闻、通知</h2>
+					<h2 style="background-color: #d4d8d9">行业新闻、通知</h2>
 					<ul class="cate">
 						<li>
                             {% for types in info_type %}
@@ -41,7 +41,7 @@
 			<div class="col-md-8 products-right">
 				<div class="w3l_search">
 					<form action="/infolist" method="get">
-						<input type="search" name="key_words" placeholder="新闻、公告 名称搜索..." required="">
+						<input type="search" name="key_words" placeholder="行业新闻、公告 名称搜索..." required="">
 						<button type="submit" class="btn btn-default search" aria-label="Left Align">
 							<i class="fa fa-search" aria-hidden="true"> </i>
 						</button>
@@ -60,7 +60,7 @@
                     {% if info_list.paginator.count == 0 %}
                         <div class="col-md-12 top_brand_left">
                             <div class="alert alert-danger" role="alert">
-                               暂无&nbsp;相关新闻、通知
+                               暂无&nbsp;相关行业新闻、通知
                             </div>
                         </div>
                     {% else %}

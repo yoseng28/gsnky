@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title%}
-<title>{{ commodity.name }}商品详情页面</title>
+<title>{{ commodity.name }}-名特优新农畜产品详情页面</title>
 {% endblock %}
 
 {% block content %}
@@ -24,7 +24,7 @@
         <div class="container">
             <div class="col-md-12">
                 <div class="yue_commodity_info">
-                    <h2 class="text-center"> <span class="label label-default">商品介绍</span> {{ commodity.name }}</h2>
+                    <h2 class="text-center"> <span class="label label-default">产品介绍</span> {{ commodity.name }}</h2>
                     </br>
                     {% autoescape off %}
                     {{ commodity.detail }}
